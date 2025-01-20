@@ -1,4 +1,22 @@
 #001 Test "Subscribe to the newsletter"
 
-Precondition
-1.
+Precondition:
+1. Open browser Chrome
+2. Make window maximize
+
+Steps:
+1. Open url ("https://www.lidl.de/c/newsletter-anmeldeseite/s10005754")
+2. Find input "Vorname", clear it and fill "Andy"
+3. Find input "Nachname", clear it and fill "Vogel"
+4. Find input "Email", clear it and fill "ashramenko+test[number]@gmail.com"
+5. Find and click on button "ZumNewsletterAnmelden"
+
+Expected result:
+1. A welcome message and a list of 3 steps to confirm your email will appear
+How check it:
+- visible welcome message
+- not visible inputs "Vorname", "Nachname"
+- not visible button "ZumNewsletterAnmelden"
+
+Post-conditions:
+1. Close browser
