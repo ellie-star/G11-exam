@@ -13,6 +13,9 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = "//footer//a[@href='https://www.lidl.de/c/newsletter-anmeldeseite/s10005754']")
     private WebElement buttonBecomeLidlFan;
 
+    @FindBy(xpath = "//h1")
+    private WebElement titleHomePage;
+
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -42,4 +45,10 @@ public class HomePage extends ParentPage {
         checkUrl();
         return this;
     }
+
+    public HomePage checkTitleHomePageIsNotVisible() {
+        checkIsElementNotVisible(titleHomePage);
+        return this;
+    }
+
 }

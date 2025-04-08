@@ -17,13 +17,11 @@ public class PageProvider {
         return new OnlineshopPage(webDriver);
     }
 
-    public HeaderElements getHeaderElements(){
-        return new HeaderElements(webDriver);
-    }
-
     public NewsletterRegistrationPage getNewsletterRegistrationPage(){
         return new NewsletterRegistrationPage(webDriver);
     }
+
+    public FilialePage getfilialePage(){return new FilialePage(webDriver);}
 
 
 }
