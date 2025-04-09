@@ -9,6 +9,7 @@ target/generated-sources/
 target/generated-test-sources/
 target/test-classes
 target/site
+log/
 *.log
 *.iml
 *.ipr
@@ -21,7 +22,6 @@ allure-results
 ### Mac OS ###
 .DS_Store
 
-target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -56,6 +56,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-### Mac OS ###
-.DS_Store
