@@ -15,6 +15,11 @@ public class HeaderElements extends CommonActionsWithElements {
     @FindBy(xpath = "//nav[@class='n-navigation__top-menu']//a[@href='/store']")
     private WebElement menuFiliale;
 
+    @FindBy(xpath = "//input[@data-id='search-input-field']")
+    private WebElement inputIntoSearch;
+
+    @FindBy(xpath = "//button[@data-id='search-input-button']")
+    private WebElement buttonToSearch;
 
     public HeaderElements(WebDriver webDriver) {
         super(webDriver);
@@ -34,5 +39,12 @@ public class HeaderElements extends CommonActionsWithElements {
         clickOnElement(menuFiliale);
         return new FilialePage(webDriver);
     }
+
+    public ResultOfSearchPage enterTextIntoInputSearchAndClickOnButtonSearch(String wordForSearch){
+        clearAndEnterTextIntoElement(inputIntoSearch,wordForSearch);
+        clickOnElement(buttonToSearch);
+        return new ResultOfSearchPage(webDriver);
+    }
+
 
 }

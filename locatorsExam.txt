@@ -6,6 +6,8 @@ button.WerdeLidlFan = "//footer//a[@href='https://www.lidl.de/c/newsletter-anmel
 Home = "//a[@data-ga-action='Home']"
 Onlineshop = "//nav[@class='n-navigation__top-menu']//a[@href='/online']"
 Filiale = "//nav[@class='n-navigation__top-menu']//a[@href='/store']"
+input.search = "//input[@data-id='search-input-field']"
+button.search = "//button[@data-id='search-input-button']"
 
 #Subscribe to the newsletter page
 link = "https://www.lidl.de/c/newsletter-anmeldeseite/s10005754"
@@ -17,8 +19,12 @@ button.ZumNewsletterAnmelden = "//button[@name='btnZUM NEWSLETTER ANMELDEN']"
 
 #Success subscribe to newsletter page
 text = "//h2[text()='Eine sehr gute Entscheidung! Bestätige jetzt deine Anmeldung zum Lidl Newsletter!']"
-
 1. Schritt: Öffne die Bestätigungs-Mail.
 2. Schritt: Klicke auf den Link, um deine Anmeldung abzuschließen.
 3. Schritt: Erhalte die Willkommensmail.
 
+#Result of search page
+word.search = "//h1"  -- garten
+count.result.search = "//section[@class='s-page-heading']//span"  -- 1196 Produkte
+url = "/q/search?q=garten" - "garten" was the result of the search
+button.kategorie = "//button[@aria-controls='Kategorie']"

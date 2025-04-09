@@ -27,10 +27,8 @@ public class CommonActionsWithElements {
                 Duration.ofSeconds(ConfigProvider.configProperties.TIME_FOR_DEFAULT_WAIT()));
     }
 
-
-
     private String getElementName(WebElement webElement) {
-        String elementName = "";
+        String elementName;
         try {
             elementName = webElement.getAccessibleName();
         } catch (Exception e) {
@@ -91,6 +89,11 @@ public class CommonActionsWithElements {
     protected void checkTextInElement(WebElement webElement, String text) {
         Assert.assertEquals("Text in element " + getElementName(webElement) + " is not expected", text, webElement.getText());
         logger.info("Text in element " + getElementName(webElement) + " is expected");
+    }
+
+    protected String getTextFromElement(WebElement webElement) {
+        String textFromElement = webElement.getText();
+        return textFromElement;
     }
 
 }
