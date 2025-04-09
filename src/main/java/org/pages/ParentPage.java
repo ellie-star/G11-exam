@@ -27,6 +27,16 @@ public abstract class ParentPage extends CommonActionsWithElements{
                 , baseUrl + getRelativeUrl()
                 , webDriver.getCurrentUrl());
         logger.info(baseUrl + getRelativeUrl() + " was checked");
+    }
 
+    protected void checkUrlWithPattern(String text) {
+        String expectedUrlPattern = baseUrl + getRelativeUrl();
+        String expectedUrl = String.format(expectedUrlPattern, text);
+        String actualUrl = webDriver.getCurrentUrl();
+
+        Assert.assertTrue("URL is not expected \n" +
+                        "Expected url: " + expectedUrl +
+                        "\n Actual url: " + actualUrl,
+                actualUrl.equals(expectedUrl));
     }
 }

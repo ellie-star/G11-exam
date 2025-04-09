@@ -21,7 +21,9 @@ public class PageProvider {
         return new NewsletterRegistrationPage(webDriver);
     }
 
-    public FilialePage getfilialePage(){return new FilialePage(webDriver);}
+    public FilialePage getFilialePage(){return new FilialePage(webDriver);}
+
+    public ResultOfSearchPage getResultOfSearchPage(){return new ResultOfSearchPage(webDriver);}
 
 
 }
