@@ -21,6 +21,8 @@ public class HeaderElements extends CommonActionsWithElements {
     @FindBy(xpath = "//button[@data-id='search-input-button']")
     private WebElement buttonToSearch;
 
+    PageProvider pageProvider = new PageProvider(webDriver);
+
     public HeaderElements(WebDriver webDriver) {
         super(webDriver);
     }
@@ -30,20 +32,47 @@ public class HeaderElements extends CommonActionsWithElements {
         return new HomePage(webDriver);
     }
 
-    public OnlineshopPage clickOnMenuOnlineShop(){
+    public OnlineshopPage clickOnMenuOnlineShop() {
         clickOnElement(menuOnlineShop);
         return new OnlineshopPage(webDriver);
     }
 
-    public FilialePage clickOnMenuFiliale(){
+    public FilialePage clickOnMenuFiliale() {
         clickOnElement(menuFiliale);
         return new FilialePage(webDriver);
     }
 
-    public ResultOfSearchPage enterTextIntoInputSearchAndClickOnButtonSearch(String wordForSearch){
-        clearAndEnterTextIntoElement(inputIntoSearch,wordForSearch);
+    public ResultOfSearchPage enterTextIntoInputSearchAndClickOnButtonSearch(String wordForSearch) {
+        clearAndEnterTextIntoElement(inputIntoSearch, wordForSearch);
         clickOnElement(buttonToSearch);
         return new ResultOfSearchPage(webDriver);
+    }
+
+    public OnlineshopPage navigateMenuToOnlineShopAndVerify() {
+        clickOnElement(menuOnlineShop);
+        OnlineshopPage onlineShopPage =
+                pageProvider.getOnlineshopPage()
+                        .checkIsRedirectToOnlineshopPage()
+                        .checkTitleIsCorrect();
+        return onlineShopPage;
+    }
+
+    public FilialePage navigateMenuToFilialeAndVerify() {
+        clickOnElement(menuFiliale);
+        FilialePage filialePage =
+                pageProvider.getFilialePage()
+                        .checkIsRedirectToFilialePage()
+                        .checkTitleIsCorrect();
+        return filialePage;
+    }
+
+    public HomePage navigateMenuToHomeAndVerify() {
+        clickOnElement(menuHome);
+        HomePage homePage =
+                pageProvider.getHomePage()
+                        .checkIsRedirectToHomePage()
+                        .checkTitleHomePageIsNotVisible();
+        return homePage;
     }
 
 
