@@ -1,8 +1,10 @@
 package org.pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.pages.productPages.ResultOfSearchPage;
 
 public class HeaderElements extends CommonActionsWithElements {
 
@@ -20,6 +22,12 @@ public class HeaderElements extends CommonActionsWithElements {
 
     @FindBy(xpath = "//button[@data-id='search-input-button']")
     private WebElement buttonToSearch;
+
+    @FindBy(xpath = "//a[@data-ga-action='Burger Menu']")
+    private WebElement burgerMenu;
+
+    @FindBy(xpath = "//a[@href='https://www.lidl.de/q/query/supersale']")
+    private WebElement valueSaleInBM;
 
     PageProvider pageProvider = new PageProvider(webDriver);
 
@@ -75,5 +83,9 @@ public class HeaderElements extends CommonActionsWithElements {
         return homePage;
     }
 
+    public void clickOnSaleInBurgerMenu() {
+        clickOnElement(burgerMenu);
+        clickOnValueInBM(valueSaleInBM);
+    }
 
 }

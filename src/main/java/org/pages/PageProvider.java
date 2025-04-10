@@ -1,6 +1,7 @@
 package org.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.pages.productPages.SuperSalePage;
 
 public class PageProvider {
     private WebDriver webDriver;
@@ -23,7 +24,6 @@ public class PageProvider {
 
     public FilialePage getFilialePage(){return new FilialePage(webDriver);}
 
-    public ResultOfSearchPage getResultOfSearchPage(){return new ResultOfSearchPage(webDriver);}
-
+    public SuperSalePage getSuperSalePage(){return new SuperSalePage(webDriver);}
 
 }

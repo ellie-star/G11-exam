@@ -22,7 +22,7 @@ public class BaseTest {
     private WebDriver webDriver;
     private Logger logger = Logger.getLogger(getClass());
     protected PageProvider pageProvider;
-    private String symbols = "-------------";
+    private String symbols = "-----";
 
     @Before
     public void setup() {
@@ -47,27 +47,27 @@ public class BaseTest {
 
 
     private WebDriver initDriver() {
-        String browserFromProperly = System.getProperty("browser");
-        logger.info("Browser is " + browserFromProperly);
-        if ((browserFromProperly== null) || (browserFromProperly.equalsIgnoreCase("chrome"))){
+        String browserFromProperty = System.getProperty("browser");
+        logger.info("Browser is " + browserFromProperty);
+        if ((browserFromProperty== null) || (browserFromProperty.equalsIgnoreCase("chrome"))){
             WebDriverManager.chromedriver().setup();
             webDriver = new ChromeDriver();
             logger.info("Default browser is chrome");
-        } else if (browserFromProperly.equalsIgnoreCase("firefox")){
+        } else if (browserFromProperty.equalsIgnoreCase("firefox")){
             WebDriverManager.firefoxdriver().setup();
             webDriver = new FirefoxDriver();
-        } else if ("ie".equals(browserFromProperly.toLowerCase())){
+        } else if ("ie".equals(browserFromProperty.toLowerCase())){
             WebDriverManager.iedriver().setup(); //zoom 100%
             webDriver = new InternetExplorerDriver(); //security level - Medium
-        } else if ("safari".equalsIgnoreCase(browserFromProperly)) {
+        } else if ("safari".equalsIgnoreCase(browserFromProperty)) {
             WebDriverManager.safaridriver().setup();
             webDriver = new SafariDriver();
-        } else if ("edge".equalsIgnoreCase(browserFromProperly)) {
+        } else if ("edge".equalsIgnoreCase(browserFromProperty)) {
             WebDriverManager.edgedriver().setup();
             webDriver = new EdgeDriver();
         }
         else {
-            throw new IllegalArgumentException("Browser " + browserFromProperly + " is not supported");
+            throw new IllegalArgumentException("Browser " + browserFromProperty + " is not supported");
         }
 
         return webDriver;
