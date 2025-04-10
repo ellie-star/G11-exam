@@ -8,6 +8,8 @@ Onlineshop = "//nav[@class='n-navigation__top-menu']//a[@href='/online']"
 Filiale = "//nav[@class='n-navigation__top-menu']//a[@href='/store']"
 input.search = "//input[@data-id='search-input-field']"
 button.search = "//button[@data-id='search-input-button']"
+burgerMenu = "//a[@data-ga-action='Burger Menu']"
+
 
 #Subscribe to the newsletter page
 link = "https://www.lidl.de/c/newsletter-anmeldeseite/s10005754"
@@ -30,5 +32,5 @@ count.result.search = "//section[@class='s-page-heading']//span"  -- 1196 Produk
 url = "/q/search?q=garten" - "garten" was the result of the search
 button.kategorie = "//button[@aria-controls='Kategorie']"
 
-#LoginPage
-url = "https://accounts.lidl.com/Account/Login"?????????
+#OnlineshopPage
+category.garten&balkon = "//li[@class='ux-base-slider__slide']//a[@href='/h/garten-balkon/h10006533']"

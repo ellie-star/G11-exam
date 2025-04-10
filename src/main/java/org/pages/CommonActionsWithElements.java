@@ -2,6 +2,7 @@ package org.pages;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -53,6 +54,17 @@ public class CommonActionsWithElements {
         }
     }
 
+    protected void clickOnElement(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            webDriverWait10.until(ExpectedConditions.elementToBeClickable(webElement));
+            webElement.click();
+            logger.info("Element with locator '" + locator + "' was clicked");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
     protected void clearAndEnterTextIntoElement(WebElement webElement, String text) {
         try {
             webElement.clear();
@@ -94,6 +106,15 @@ public class CommonActionsWithElements {
     protected String getTextFromElement(WebElement webElement) {
         String textFromElement = webElement.getText();
         return textFromElement;
+    }
+
+    protected void clickOnValueInBM(WebElement webElement) {
+        try {
+            webElement.click();
+            logger.info("Clicked on menu " + getElementName(webElement));
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
     }
 
 }

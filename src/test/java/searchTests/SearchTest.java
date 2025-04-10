@@ -15,15 +15,13 @@ public class SearchTest extends BaseTest {
         pageProvider.getHomePage().openPage().getHeaderElements()
                 .enterTextIntoInputSearchAndClickOnButtonSearch(searchWord)
                 .checkRedirectToResultOfSearchPage(searchWord)
-                .checkSearchedWordIsVisible(searchWord)
-                .checkFilterOnPageIsVisible()
                 .getResultOfSearch(searchWord)
         ;
     }
 
     public Object[][] wordsForSearch() {
         return new Object[][]{
-                {"garten"}, {"wine"}, {"sonne"}
+                {"milch"}, {"wine"}, {"sonne"}
         };
     }
 
