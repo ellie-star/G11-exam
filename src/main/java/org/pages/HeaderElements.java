@@ -1,10 +1,11 @@
 package org.pages;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.pages.productPages.ResultOfSearchPage;
+
+import java.util.List;
 
 public class HeaderElements extends CommonActionsWithElements {
 
@@ -86,6 +87,24 @@ public class HeaderElements extends CommonActionsWithElements {
     public void clickOnSaleInBurgerMenu() {
         clickOnElement(burgerMenu);
         clickOnValueInBM(valueSaleInBM);
+    }
+
+    public void checkMenu(List<String> optionsForNavigation){
+        for (String menuItem : optionsForNavigation) {
+            switch (menuItem) {
+                case "Onlineshop":
+                    pageProvider.getOnlineshopPage().getHeaderElements().navigateMenuToOnlineShopAndVerify();
+                    break;
+                case "Filiale":
+                    pageProvider.getFilialePage().getHeaderElements().navigateMenuToFilialeAndVerify();
+                    break;
+                case "Home":
+                    pageProvider.getHomePage().getHeaderElements().navigateMenuToHomeAndVerify();
+                    break;
+                default:
+                    throw new IllegalArgumentException("   !!!UNKNOWN MENU ITEM: " + menuItem);
+            }
+        }
     }
 
 }

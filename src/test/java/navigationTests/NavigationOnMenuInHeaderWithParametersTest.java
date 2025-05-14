@@ -16,23 +16,8 @@ public class NavigationOnMenuInHeaderWithParametersTest extends BaseTest {
     @Parameters(method = "optionsForNavigation")
     public void T004_navigationOnMenuInHeaderWithParameters(List<String> optionsForNavigation) {
 
-        pageProvider.getHomePage().openPage();
-
-        for (String menuItem : optionsForNavigation) {
-            switch (menuItem) {
-                case "Onlineshop":
-                    pageProvider.getOnlineshopPage().getHeaderElements().navigateMenuToOnlineShopAndVerify();
-                    break;
-                case "Filiale":
-                    pageProvider.getFilialePage().getHeaderElements().navigateMenuToFilialeAndVerify();
-                    break;
-                case "Home":
-                    pageProvider.getHomePage().getHeaderElements().navigateMenuToHomeAndVerify();
-                    break;
-                default:
-                    throw new IllegalArgumentException("   !!!UNKNOWN MENU ITEM: " + menuItem);
-            }
-        }
+        pageProvider.getHomePage().openPage().getHeaderElements()
+                .checkMenu(optionsForNavigation);
     }
 
     public List<List<String>> optionsForNavigation() {
